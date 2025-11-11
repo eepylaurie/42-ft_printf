@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:32:01 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/06 16:22:15 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/11/11 13:45:19 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_putstr(char *s);
 int	ft_putptr(void *p);
 int	ft_putnbr(int n);
 int	ft_putunsigned(unsigned int n);
-int	ft_puthex(unsigned int n, int c);
+int	ft_puthex(unsigned long n, int c);
 
 #endif

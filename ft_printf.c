@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:56 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/06 14:44:41 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/11/11 13:45:03 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_process_specifier(const char c, va_list *args)
 	else if (c == 'u')
 		return (ft_putunsigned(va_arg(*args, unsigned int)));
 	else if (c == 'x' || c == 'X')
-		return (ft_puthex(va_arg(*args, unsigned int), c));
+		return (ft_puthex(va_arg(*args, unsigned long), c));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	else
