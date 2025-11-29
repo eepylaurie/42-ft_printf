@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:42:35 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/29 19:16:12 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:21:07 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static int	ft_process_specifier(const char c, va_list *args)
 		return (ft_puthex(va_arg(*args, unsigned int), c));
 	else if (c == '%')
 		return (ft_putchar('%'));
-	else
-		return (0);
+	return (ft_putchar('%') + ft_putchar(c));
 }
 
 int	ft_printf(const char *format, ...)
