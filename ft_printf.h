@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 19:40:37 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/25 19:46:24 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:41:20 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+
+# ifdef __APPLE__
+#  define FT_PRINTF_MACOS 1
+# else
+#  define FT_PRINTF_MACOS 0
+# endif
 
 int	ft_printf(const char *format, ...);
 
