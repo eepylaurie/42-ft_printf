@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:42:35 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/29 19:10:18 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/11/29 19:16:12 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (!*format)
+				break;
 			total += ft_process_specifier(*format, &args);
 		}
 		else
