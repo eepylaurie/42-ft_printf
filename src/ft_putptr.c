@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 21:26:39 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/29 19:41:29 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/12/09 20:20:25 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ static int	ft_putptr_hex(unsigned long n)
 int	ft_putptr(unsigned long p)
 {
 	if (p == 0)
-	{
-		if (FT_PRINTF_MACOS)
-			return (write(1, "0x0", 3));
-		else
-			return (write(1, "(nil)", 5));
-	}
+		return (write(1, "(nil)", 5));
 	write(1, "0x", 2);
 	return (2 + ft_putptr_hex(p));
 }
