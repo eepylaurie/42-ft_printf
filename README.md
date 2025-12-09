@@ -1,63 +1,98 @@
-# ✨ ft_printf  
-🩵 A minimalist, from-scratch reimplementation of the C `printf` function.  
-## 🖤 Overview  
-`ft_printf` recreates the essential functionality of the standard C `printf`, built entirely without stdio. It parses format strings, handles multiple data types, and prints them using only low-level system calls. The project reflects the 42 philosophy: simplicity, precision, and strong fundamentals.  
-## ⚙️ Supported Conversions  
-| Format | Description |  
-|--------|-------------|  
-| `%c` | Character |  
-| `%s` | String |  
-| `%p` | Pointer address |  
-| `%d` / `%i` | Signed integer |  
-| `%u` | Unsigned integer |  
-| `%x` | Hex (lowercase) |  
-| `%X` | Hex (uppercase) |  
-| `%%` | Percent sign |  
-Special handling includes: `NULL` strings → `(null)` ; `NULL` pointers → `0x0` (macOS) or `(nil)` (Linux) ; correct printing of edge cases like `INT_MIN`.  
-## 🧠 Technical Highlights  
-🩵 **Low-Level Output** — implemented solely with `write()`, manual printing logic, and recursion.  
-🩵 **Variadic Processing** — dynamic argument handling with `va_list`, `va_start`, `va_arg`, and `va_end`.  
-🩵 **Modular Architecture** — every specifier lives in its own file for clarity and maintainability:  
+*This project has been created as part of the 42 curriculum by lmatthes.*
+
+# ft_printf
+
+## 📌 Description
+
+`ft_printf` is a custom, simplified reimplementation of the standard C `printf()` function. It formats and prints various data types using **variadic arguments**, without relying on the original printf's internal buffering.
+
+This project reinforces string parsing, type conversion, and modular C code design.
+
+### Supported Conversions
+
+| Format | Description |
+| ------ | ----------- |
+| `%c` | single character |
+| `%s` | string (as defined by the common C convention) |
+| `%p` | pointer address in hexadecimal format |
+| `%d` | signed decimal number |
+| `%i` | signed integer (same as `%d`) |
+| `%u` | unsigned decimal number |
+| `%x` | number in lowercase hexadecimal format |
+| `%X` | number in uppercase hexadecimal format |
+| `%%` | literal `%` character |
+
+## ⚙️ Instructions
+
+### Build the library
+
+``` bash
+make
 ```
-ft_printf.c     → parser + dispatcher  
-ft_putchar.c    → print character  
-ft_putstr.c     → print string  
-ft_putnbr.c     → print signed int  
-ft_putuint.c    → print unsigned int  
-ft_puthex.c     → print hexadecimal  
-ft_putptr.c     → print pointer  
-```  
-🩵 **Cross-Platform Behavior** — matches system `printf` on macOS and Linux.  
-## 📁 Project Structure  
+This creates `libftprintf.a`.
+
+### Use it in a program
+
+``` bash
+cc main.c libftprintf.a -o program
+./program
 ```
-ft_printf/  
-├── ft_printf.h  
-├── Makefile  
-└── src/  
-    ├── ft_printf.c  
-    ├── ft_putchar.c  
-    ├── ft_putstr.c  
-    ├── ft_putptr.c  
-    ├── ft_putnbr.c  
-    ├── ft_putuint.c  
-    └── ft_puthex.c  
-```  
-## 🛠 Build Instructions  
-Run `make` to compile the library: `libftprintf.a`  
-Use it in your program with:  
-`cc main.c libftprintf.a`  
-## 🧪 Example Usage  
-```c
+
+### Clean / Rebuild
+
+``` bash
+make clean
+make fclean
+make re
+```
+
+<!-- ### Example Usage
+
+``` c
 #include "ft_printf.h"
+
 int main(void)
 {
-    ft_printf("Mode: %s | Level: %d | Code: %X\\n", "active", 3, 255);
-    return 0;
+    char            *name = "Gengar";
+    int             level = 48;
+    unsigned int    hp = 127;
+    void            *ptr = name;
+
+    ft_printf("-- Pokémon Summary --\n");
+    ft_printf("Pokémon : %s\n", name);
+    ft_printf("Level : %d\n", level);
+    ft_printf("HP : %u\n", hp);
+    ft_printf("Memory location : %p\n", ptr);
+    ft_printf("Pokédex (hex) : %X\n", 94);
+
+    return (0);
 }
-```  
-Output:  
-`Mode: active | Level: 3 | Code: FF`  
-## 🖤 Why This Project Matters  
-Rebuilding `printf` requires understanding type formatting, memory representation, parsing strategies, and platform differences. It demonstrates clean code structure, reliability, and strong low-level thinking — essential strengths in systems programming, embedded development, and high-performance backend work.  
-## 📩 Contact  
-For collaboration, engineering discussions, or project inquiries, feel free to reach out.  
+
+``` -->
+
+## 🔗 Resources
+
+- `man 3 printf` - reference for expected behavior
+- `man 3 stdarg` - variadic arguments
+- [ft_printf | Guide](https://42-cursus.gitbook.io/guide/1-rank-01/ft_printf)
+- [Variadic functions in C](https://www.geeksforgeeks.org/c/variadic-functions-in-c/)
+
+### AI Usage
+
+AI assistance was used **only for learning support**, including:
+- developing a study plan to structure my learning of ft_printf
+- small conceptual clarifications (e.g., difference between `%d` and `%i`, explanation of original printf's buffer logic, variadic function theory)
+- learning Markdown
+
+**All code logic, structure, and implementation were written and understood by me.**
+
+## 🧠 Algorithm Overview
+
+1. Iterate through the format string.
+2. Print normal characters directly.
+3. On encountering `%`, read the next character to determine the conversion type.
+4. Call the corresponding helper function (`ft_putchar`, `ft_putnbr`, etc.).
+5. Each helper returns the number of characters printed.
+5. Accumulate and return the total printed count.
+
+This mirrors the core behavior of `printf()` while keeping implementation simple and modular.
