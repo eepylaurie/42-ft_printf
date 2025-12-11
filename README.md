@@ -2,7 +2,7 @@
 
 # ft_printf
 
-## 📌 Description
+## ℹ️ Description
 
 `ft_printf` is a custom, simplified reimplementation of the standard C `printf()` function. It formats and prints various data types using **variadic arguments**, without relying on the original printf's internal buffering.
 
@@ -33,6 +33,28 @@ This creates `libftprintf.a`.
 
 ### Use it in a program
 
+``` C
+#include "ft_printf.h"
+
+int main(void)
+{
+	char    		*name = "Gengar";
+	int				level = 100;
+	unsigned int	hp = 261;
+	int				dex = 94;
+	void			*location = name;
+
+    ft_printf("Pokédex Entry\n\n");
+	ft_printf("Name : %s\n", name);
+	ft_printf("Level : %d\n", level);
+	ft_printf("HP : %u\n", hp);
+	ft_printf("Kanto-Dex : %X\n", dex);
+	ft_printf("Location : %p\n", location);
+}
+```
+
+### Compile & Run
+
 ``` bash
 cc main.c libftprintf.a -o program
 ./program
@@ -46,31 +68,7 @@ make fclean
 make re
 ```
 
-<!-- ### Example Usage
-
-``` c
-#include "ft_printf.h"
-
-int main(void)
-{
-    char            *name = "Gengar";
-    int             level = 48;
-    unsigned int    hp = 127;
-    void            *ptr = name;
-
-    ft_printf("-- Pokémon Summary --\n");
-    ft_printf("Pokémon : %s\n", name);
-    ft_printf("Level : %d\n", level);
-    ft_printf("HP : %u\n", hp);
-    ft_printf("Memory location : %p\n", ptr);
-    ft_printf("Pokédex (hex) : %X\n", 94);
-
-    return (0);
-}
-
-``` -->
-
-## 🔗 Resources
+## 🌐 Resources
 
 - `man 3 printf` - reference for expected behavior
 - `man 3 stdarg` - variadic arguments
@@ -88,6 +86,8 @@ AI assistance was used **only for learning support**, including:
 
 ## 🧠 Algorithm Overview
 
+`ft_printf` uses a simple linear algorithm:
+
 1. Iterate through the format string.
 2. Print normal characters directly.
 3. On encountering `%`, read the next character to determine the conversion type.
@@ -96,3 +96,12 @@ AI assistance was used **only for learning support**, including:
 5. Accumulate and return the total printed count.
 
 This mirrors the core behavior of `printf()` while keeping implementation simple and modular.
+
+## 🧬 Data Structures
+
+The implementation uses only simple data structures:
+- the **format string** (input),
+- a **loop** index,
+- a **va_list** to access variadic arguments,
+- small **local integers** for counting and number hangling.
+These are sufficient because values are printed immediately without storing or buffering, keeping the design simple, efficient, and compliant with the project requirements.
