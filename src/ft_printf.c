@@ -6,13 +6,13 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 23:42:35 by lmatthes          #+#    #+#             */
-/*   Updated: 2025/11/29 21:50:21 by lmatthes         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:58:21 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_process_specifier(const char c, va_list *args)
+static int	process_specifier(const char c, va_list *args)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(*args, int)));
@@ -45,7 +45,7 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (!*format)
 				break ;
-			total += ft_process_specifier(*format, &args);
+			total += process_specifier(*format, &args);
 		}
 		else
 			total += ft_putchar(*format);
