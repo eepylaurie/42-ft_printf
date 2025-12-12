@@ -38,13 +38,13 @@ This creates `libftprintf.a`.
 
 int main(void)
 {
-	char    		*name = "Gengar";
+	char			*name = "Gengar";
 	int				level = 100;
 	unsigned int	hp = 261;
 	int				dex = 94;
 	void			*location = name;
 
-    ft_printf("Pokédex Entry\n\n");
+	ft_printf("Pokédex Entry\n\n");
 	ft_printf("Name : %s\n", name);
 	ft_printf("Level : %d\n", level);
 	ft_printf("HP : %u\n", hp);
