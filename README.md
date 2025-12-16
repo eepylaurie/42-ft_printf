@@ -104,4 +104,5 @@ The implementation uses only simple data structures:
 - a **loop** index,
 - a **va_list** to access variadic arguments,
 - small **local integers** for counting and number hangling.
+
 These are sufficient because values are printed immediately without storing or buffering, keeping the design simple, efficient, and compliant with the project requirements.
