@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:30:11 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 21:35:15 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_fmt
 	int	prec;
 }	t_fmt;
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
+void	ft_init_fmt(t_fmt *f);
+int		ft_parse_fmt(const char *format, int i, t_fmt *f);
 
 #endif
