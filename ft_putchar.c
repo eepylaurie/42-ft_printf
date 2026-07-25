@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 20:04:52 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 20:40:02 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/25 20:51:11 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/25 20:51:46 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,45 +30,5 @@ int	ft_putstr(char *s)
 		ft_putchar(s[count]);
 		count++;
 	}
-	return (count);
-}
-
-int	ft_putnbr(int n)
-{
-	int	count;
-
-	count = 0;
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (n < 0)
-	{
-		count += ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-		count += ft_putnbr(n / 10);
-	count += ft_putchar((n % 10) + '0');
-	return (count);
-}
-
-int	ft_putnbr_unsigned(unsigned int n)
-{
-	int	count;
-
-	count = 0;
-	if (n >= 10)
-		count += ft_putnbr_unsigned(n / 10);
-	count += ft_putchar((n % 10) + '0');
-	return (count);
-}
-
-int	ft_puthex(unsigned int n, char *base)
-{
-	int	count;
-
-	count = 0;
-	if (n >= 16)
-		count += ft_puthex(n / 16, base);
-	count += ft_putchar(base[n % 16]);
 	return (count);
 }

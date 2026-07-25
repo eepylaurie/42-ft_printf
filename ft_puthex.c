@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 20:44:48 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 20:45:01 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/25 20:52:29 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/25 20:53:13 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_puthex(unsigned int n, char *base)
+{
+	int	count;
+
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, base);
+	count += ft_putchar(base[n % 16]);
+	return (count);
+}
 
 int	ft_puthex_long(unsigned long n)
 {
