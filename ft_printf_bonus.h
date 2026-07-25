@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:22:50 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:31:05 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_fmt
 	int	space;
 	int	width;
 	int	prec;
+	int	is_num;
 }	t_fmt;
 
 int		ft_printf(const char *format, ...);
@@ -36,5 +37,6 @@ int		ft_dispatch(char spec, va_list args, t_fmt *f);
 int		ft_put_width(char *s, t_fmt *f);
 char	*ft_utoa_base(unsigned long n, char *base);
 char	*ft_ptr_to_str(unsigned long n);
+char	*ft_apply_prec(char *s, t_fmt *f);
 
 #endif

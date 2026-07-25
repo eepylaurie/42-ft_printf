@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 21:32:46 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:35:10 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:28:37 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_init_fmt(t_fmt *f)
 	f->space = 0;
 	f->width = 0;
 	f->prec = -1;
+	f->is_num = 0;
 }
 
 static int	ft_parse_flags(const char *fmt, int i, t_fmt *f)
