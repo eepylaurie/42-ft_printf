@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 23:29:00 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:43:18 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:47:09 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ static char	*ft_build_prec(char *s, int neg, int zeros)
 	while (zeros-- > 0)
 		res[i++] = '0';
 	ft_strlcpy(res + i, s + neg, len - neg + 1);
+	return (res);
+}
+
+char	*ft_apply_str_prec(char *s, t_fmt *f)
+{
+	char	*res;
+	int		len;
+
+	if (!s || f->is_num || f->prec < 0)
+		return (s);
+	len = ft_strlen(s);
+	if (f->prec >= len)
+		return (s);
+	res = ft_substr(s, 0, f->prec);
+	free(s);
 	return (res);
 }
 
