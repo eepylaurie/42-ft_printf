@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:04:52 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 20:27:58 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 20:40:02 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,16 @@ int	ft_putnbr_unsigned(unsigned int n)
 	if (n >= 10)
 		count += ft_putnbr_unsigned(n / 10);
 	count += ft_putchar((n % 10) + '0');
+	return (count);
+}
+
+int	ft_puthex(unsigned int n, char *base)
+{
+	int	count;
+
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, base);
+	count += ft_putchar(base[n % 16]);
 	return (count);
 }
