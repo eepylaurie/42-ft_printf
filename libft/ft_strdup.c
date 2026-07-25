@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/17 18:34:22 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/17 18:34:29 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+char	*ft_strdup(const char *s)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
+	char	*dup;
+	size_t	len;
 
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, len + 1);
+	return (dup);
+}

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/21 01:38:14 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/21 01:38:25 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
-
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	ft_lstlast(*lst)->next = new;
+}

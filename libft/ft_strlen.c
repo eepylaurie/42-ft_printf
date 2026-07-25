@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/17 18:27:04 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/17 18:27:12 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+size_t	ft_strlen(const char *s)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
+	size_t	i;
 
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

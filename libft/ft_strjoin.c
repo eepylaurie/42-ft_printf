@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/17 18:36:45 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/17 18:36:57 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
+	char	*join;
+	size_t	len1;
+	size_t	len2;
 
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = malloc(len1 + len2 + 1);
+	if (!join)
+		return (NULL);
+	ft_memcpy(join, s1, len1);
+	ft_memcpy(join + len1, s2, len2 + 1);
+	return (join);
+}

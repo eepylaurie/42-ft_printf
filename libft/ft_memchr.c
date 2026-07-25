@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/17 18:23:42 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/17 18:23:49 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
+	const unsigned char	*p;
+	size_t				i;
 
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	p = (const unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (p[i] == (unsigned char)c)
+			return ((void *)(p + i));
+		i++;
+	}
+	return (NULL);
+}

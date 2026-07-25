@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Created: 2026/07/17 18:27:53 by lmatthes          #+#    #+#             */
+/*   Updated: 2026/07/17 18:28:01 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "libft.h"
-
-typedef struct s_fmt
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	minus;
-	int	zero;
-	int	hash;
-	int	plus;
-	int	space;
-	int	width;
-	int	prec;
-}	t_fmt;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
-int		ft_printf(const char *format, ...);
-void	ft_init_fmt(t_fmt *f);
-int		ft_parse_fmt(const char *format, int i, t_fmt *f);
-
-#endif
+	dlen = 0;
+	while (dlen < dstsize && dst[dlen])
+		dlen++;
+	slen = ft_strlen(src);
+	if (dlen == dstsize)
+		return (dstsize + slen);
+	i = 0;
+	while (src[i] && dlen + i < dstsize - 1)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[dlen + i] = '\0';
+	return (dlen + slen);
+}
