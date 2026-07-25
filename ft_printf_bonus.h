@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 21:53:35 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:16:22 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include "libft.h"
 
 typedef struct s_fmt
@@ -31,5 +32,7 @@ typedef struct s_fmt
 int		ft_printf(const char *format, ...);
 void	ft_init_fmt(t_fmt *f);
 int		ft_parse_fmt(const char *format, int i, t_fmt *f);
+int		ft_dispatch(char spec, va_list args, t_fmt *f);
+int		ft_put_width(char *s, t_fmt *f);
 
 #endif
