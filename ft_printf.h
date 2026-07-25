@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:02:59 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 20:03:02 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 20:10:34 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
+int	ft_format(char specifier, va_list args);
 
 #endif

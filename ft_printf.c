@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:03:21 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 20:03:25 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 20:10:50 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	while (format[i])
 	{
-		count += ft_putchar(format[i]);
+		if (format[i] == '%' && format[i + 1])
+		{
+			i++;
+			count += ft_format(format[i], args);
+		}
+		else
+			count += ft_putchar(format[i]);
 		i++;
 	}
 	va_end(args);
