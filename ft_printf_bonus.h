@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 21:30:06 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:31:05 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:37:58 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int		ft_put_width(char *s, t_fmt *f);
 char	*ft_utoa_base(unsigned long n, char *base);
 char	*ft_ptr_to_str(unsigned long n);
 char	*ft_apply_prec(char *s, t_fmt *f);
+char	*ft_apply_flags(char *s, char spec, t_fmt *f);
 
 #endif

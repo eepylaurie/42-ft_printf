@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 23:17:34 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:33:23 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:38:38 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	ft_dispatch(char spec, va_list args, t_fmt *f)
 	int		count;
 
 	s = ft_get_str(spec, args, f);
+	s = ft_apply_flags(s, spec, f);
 	s = ft_apply_prec(s, f);
 	if (!s)
 		return (0);

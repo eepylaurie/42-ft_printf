@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 23:17:58 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:34:06 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:44:12 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ static int	ft_use_zero(t_fmt *f)
 static int	ft_put_zero(char *s, int pad)
 {
 	int	count;
-	int	neg;
+	int	skip;
 
-	neg = (s[0] == '-' || s[0] == '+' || s[0] == ' ');
+	skip = 0;
+	if (s[0] == '-' || s[0] == '+' || s[0] == ' ')
+		skip = 1;
+	else if (s[0] == '0' && (s[1] == 'x' || s[1] == 'X'))
+		skip = 2;
 	count = 0;
-	if (neg)
-		count += write(1, &s[0], 1);
+	count += write(1, s, skip);
 	count += ft_pad(pad, '0');
-	count += ft_putstr_len(s + neg);
+	count += ft_putstr_len(s + skip);
 	return (count);
 }
 

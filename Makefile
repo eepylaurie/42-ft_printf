@@ -11,7 +11,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = ft_printf.c ft_format.c ft_putchar.c ft_putnbr.c ft_puthex.c
 OBJS = $(SRCS:.c=.o)
 
-BONUS_SRCS = ft_printf_bonus.c ft_parse_bonus.c ft_width_bonus.c ft_dispatch_bonus.c ft_nbr_bonus.c ft_prec_bonus.c
+BONUS_SRCS = ft_printf_bonus.c ft_parse_bonus.c ft_width_bonus.c ft_dispatch_bonus.c ft_nbr_bonus.c ft_prec_bonus.c ft_flags_bonus.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: lmatthes <lmatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 23:29:00 by lmatthes          #+#    #+#             */
-/*   Updated: 2026/07/25 23:32:37 by lmatthes         ###   ########.fr       */
+/*   Updated: 2026/07/25 23:43:18 by lmatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*ft_build_prec(char *s, int neg, int zeros)
 		return (0);
 	i = 0;
 	if (neg)
-		res[i++] = '-';
+		res[i++] = s[0];
 	while (zeros-- > 0)
 		res[i++] = '0';
 	ft_strlcpy(res + i, s + neg, len - neg + 1);
@@ -39,7 +39,7 @@ char	*ft_apply_prec(char *s, t_fmt *f)
 
 	if (!s || !f->is_num || f->prec < 0)
 		return (s);
-	neg = (s[0] == '-');
+	neg = (s[0] == '-' || s[0] == '+' || s[0] == ' ');
 	len = ft_strlen(s) - neg;
 	if (f->prec == 0 && len == 1 && s[neg] == '0')
 	{
