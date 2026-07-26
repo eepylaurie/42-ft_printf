@@ -1,17 +1,21 @@
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 AR = ar rcs
 RM = rm -f
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = ft_printf.c ft_format.c ft_putchar.c ft_putnbr.c ft_puthex.c
+SRCS = mandatory/ft_printf.c mandatory/ft_format.c mandatory/ft_putchar.c \
+       mandatory/ft_putnbr.c mandatory/ft_puthex.c
 OBJS = $(SRCS:.c=.o)
 
-BONUS_SRCS = ft_printf_bonus.c ft_parse_bonus.c ft_width_bonus.c ft_dispatch_bonus.c ft_nbr_bonus.c ft_prec_bonus.c ft_flags_bonus.c
+BONUS_SRCS = bonus/ft_printf_bonus.c bonus/ft_parse_bonus.c \
+             bonus/ft_dispatch_bonus.c bonus/ft_nbr_bonus.c \
+             bonus/ft_flags_bonus.c bonus/ft_prec_bonus.c \
+             bonus/ft_width_bonus.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
